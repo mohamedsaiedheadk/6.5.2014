@@ -1,9 +1,11 @@
+
 <?php
 
 
-
+echo date("l") . "<br>";
 
 include('connect.php');
+include('class.php');
 
 if(isset($_POST['name'], $_POST['address'], $_POST['age']) && !empty($_POST['name']) && !empty($_POST['address']) && !empty($_POST['age']))
 {
@@ -26,18 +28,6 @@ if($q){
 
 
 
-class person{
-	public $name;
-	public $address;
-	public $age;
-	public function twostring(){
-		echo "NAME IS: " . $this->name ."<br>";
-		echo "ADDRESS IS: " . $this->address ."<br>";
-		echo "AGE IS: " . $this->age."<hr>" ;
-		
-		
-		}
-	}
 	$p= new person();
 	$p-> name = $name;
  	$p-> address = $_POST['address'];
@@ -55,7 +45,10 @@ echo "<hr>";
 echo $p-> twostring();
 echo $p2-> twostring();
 
+$sq_insert2 = "insert into ob (name,address,age) value ('$p->name','$p->address','$p->age')";
+$q2 = mysql_query($sq_insert2)or die("ERROR INSERT TO OB TABLE:"."<br>" . mysql_error());
 }
-$sq_insert2 = "insert into ob (NAME,ADDRESS,AGE) value ($p->name,$p->address,$p->age)";
-$q2 = mysql_query($sq_insert2)or die("ERROR INSERT TO OB TABLE" . mysql_error());
+
 ?>
+
+</body>
