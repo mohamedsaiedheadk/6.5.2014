@@ -28,9 +28,9 @@ abstract class Person {
 	
 	abstract public function Hobby(); 
 	
-	//public function date(){return date ; }
+
 	
-	//public function getDate(){return "YOUR AGE IS : " . $this->date() -  $yearOfBirth ;}
+	
 	
 	
 	
@@ -78,3 +78,5 @@ $Student_ob = new student ('ahmed' ,1985,'male','cairo','01090048638');
 $Teacher_ob = new teacher ('rame' ,1990,'male','tanta','01116461416');
 
 $Driver_ob = new driver ('ali' ,2000,'male','alex','5400258');
+
+$age = date_diff(date("Y") ,$yearOfBirth);
